@@ -19,6 +19,7 @@ function getComputerChoice() {
 
 // console.log(getComputerChoice());
 
+//Returns an appropriate dialogue (You win / You lose, etc.)
 function playRound(playerSelection, computerSelection) {
     playerSelection = playerSelection.trim();
     playerSelection = playerSelection.toLowerCase();
@@ -77,12 +78,39 @@ function playRound(playerSelection, computerSelection) {
             }
             break;
         default:
-
+            dialogue="Wrong input, sadge."
     }
 
     return dialogue;
 }
-   
-const playerSelection = "  RoCK";
-const computerSelection = getComputerChoice();
-console.log(computerSelection + " " + playRound(playerSelection, computerSelection));
+
+function game() {
+    playerPoint = 0;
+    computerPoint = 0;
+    for(let i = 0; i < 5; i++) {
+        playerSelection = prompt("Rock, paper, or scissors?");
+        computerSelection = getComputerChoice();
+        result = playRound(playerSelection, computerSelection);
+        console.log(playRound(playerSelection, computerSelection));
+        if(result.includes("win")) {
+            playerPoint++;
+        } else if(result.includes("lose")) {
+            computerPoint++;
+        } else if(result.includes("tie")) {
+            continue;
+        } else {
+            console.log("Invalid input. Please try again.");
+            i--;
+        }
+    }
+
+    if(playerPoint > computerPoint) {
+        return `Congratulations! You won!\nYour points: ${playerPoint}\nComputer's points: ${computerPoint}`;
+    } else if(computerPoint > playerPoint) {
+        return `You lost! Better luck next time\nYour points: ${playerPoint}\nComputer's points: ${computerPoint}`;
+    } else {
+        return `It's a tie! Try again next time\nYour points: ${playerPoint}\nComputer's points: ${computerPoint}`;
+    }
+}
+
+console.log(game());

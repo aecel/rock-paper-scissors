@@ -84,6 +84,7 @@ function playRound(playerSelection, computerSelection) {
     return dialogue;
 }
 
+//Plays 5 rounds of rock-paper-scissors
 function game() {
     playerPoint = 0;
     computerPoint = 0;

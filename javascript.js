@@ -85,25 +85,25 @@ function playRound(playerSelection, computerSelection) {
 }
 
 //Plays 5 rounds of rock-paper-scissors
-function game() {
+function game(playerClick) {
     playerPoint = 0;
     computerPoint = 0;
-    for (let i = 0; i < 5; i++) {
-        playerSelection = prompt("Rock, paper, or scissors?");
-        computerSelection = getComputerChoice();
-        result = playRound(playerSelection, computerSelection);
-        console.log(playRound(playerSelection, computerSelection));
-        if (result.includes("win")) {
-            playerPoint++;
-        } else if (result.includes("lose")) {
-            computerPoint++;
-        } else if (result.includes("tie")) {
-            continue;
-        } else {
-            console.log("Invalid input. Please try again.");
-            i--;
-        }
+    // for (let i = 0; i < 5; i++) {
+    playerSelection = playerClick;
+    computerSelection = getComputerChoice();
+    result = playRound(playerSelection, computerSelection);
+    console.log(playRound(playerSelection, computerSelection));
+    if (result.includes("win")) {
+        playerPoint++;
+    } else if (result.includes("lose")) {
+        computerPoint++;
+    } else if (result.includes("tie")) {
+        // continue;
+    } else {
+        console.log("Invalid input. Please try again.");
+        i--;
     }
+    // }
 
     if (playerPoint > computerPoint) {
         return `Congratulations! You won!\nYour points: ${playerPoint}\nComputer's points: ${computerPoint}`;
@@ -114,4 +114,30 @@ function game() {
     }
 }
 
-// console.log(game());
+// const buttons = document.querySelectorAll(".button-img");
+// buttons.forEach((button) => {
+//     button.addEventListener("click", isClicked);
+// });
+// let clickedBoi = "";
+
+let rockClicked = () => {
+    game('rock');
+}
+
+let paperClicked = () => {
+    game('paper');
+}
+
+let scissorsClicked = () => {
+    game('scissors');
+}
+
+const rockButton = document.querySelector(".rock");
+const paperButton = document.querySelector(".paper");
+const scissorsButton = document.querySelector(".scissors");
+
+rockButton.addEventListener("click", rockClicked);
+paperButton.addEventListener("click", paperClicked);
+scissorsButton.addEventListener("click", scissorsClicked);
+
+// console.log(clickedBoi);

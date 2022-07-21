@@ -25,60 +25,60 @@ function playRound(playerSelection, computerSelection) {
     playerSelection = playerSelection.toLowerCase();
 
     //Normalize playerSelection
-    dialogue="";
-    playerSelectionNorm="";
-    if(playerSelection.includes("rock") && playerSelection.length==4) {
-        playerSelectionNorm="rock";
-    } else if(playerSelection.includes("paper") && playerSelection.length==5) {
-        playerSelectionNorm="paper";
-    } else if(playerSelection.includes("scissors") && playerSelection.length==8) {
-        playerSelectionNorm="scissors";
+    dialogue = "";
+    playerSelectionNorm = "";
+    if (playerSelection.includes("rock") && playerSelection.length == 4) {
+        playerSelectionNorm = "rock";
+    } else if (playerSelection.includes("paper") && playerSelection.length == 5) {
+        playerSelectionNorm = "paper";
+    } else if (playerSelection.includes("scissors") && playerSelection.length == 8) {
+        playerSelectionNorm = "scissors";
     } else {
-        playerSelectionNorm="nah man";
+        playerSelectionNorm = "nah man";
     }
 
     switch (playerSelectionNorm) {
         case "rock":
             switch (computerSelection) {
                 case "rock":
-                    dialogue="It's a tie!";
+                    dialogue = "It's a tie!";
                     break;
                 case "paper":
-                    dialogue="You lose! Paper beats rock.";
+                    dialogue = "You lose! Paper beats rock.";
                     break;
                 case "scissors":
-                    dialogue="You win! Rock beats scissors.";
+                    dialogue = "You win! Rock beats scissors.";
                     break;
             }
             break;
         case "paper":
             switch (computerSelection) {
                 case "rock":
-                    dialogue="You win! Paper beats rock.";
+                    dialogue = "You win! Paper beats rock.";
                     break;
                 case "paper":
-                    dialogue="It's a tie!";
+                    dialogue = "It's a tie!";
                     break;
                 case "scissors":
-                    dialogue="You lose! Scissors beats paper.";
+                    dialogue = "You lose! Scissors beats paper.";
                     break;
             }
             break;
         case "scissors":
             switch (computerSelection) {
                 case "rock":
-                    dialogue="You lose! Rock beats scissors.";
+                    dialogue = "You lose! Rock beats scissors.";
                     break;
                 case "paper":
-                    dialogue="You win! Scissors beats paper.";
+                    dialogue = "You win! Scissors beats paper.";
                     break;
                 case "scissors":
-                    dialogue="It's a tie!";
+                    dialogue = "It's a tie!";
                     break;
             }
             break;
         default:
-            dialogue="Wrong input, sadge."
+            dialogue = "Wrong input, sadge."
     }
 
     return dialogue;
@@ -88,16 +88,16 @@ function playRound(playerSelection, computerSelection) {
 function game() {
     playerPoint = 0;
     computerPoint = 0;
-    for(let i = 0; i < 5; i++) {
+    for (let i = 0; i < 5; i++) {
         playerSelection = prompt("Rock, paper, or scissors?");
         computerSelection = getComputerChoice();
         result = playRound(playerSelection, computerSelection);
         console.log(playRound(playerSelection, computerSelection));
-        if(result.includes("win")) {
+        if (result.includes("win")) {
             playerPoint++;
-        } else if(result.includes("lose")) {
+        } else if (result.includes("lose")) {
             computerPoint++;
-        } else if(result.includes("tie")) {
+        } else if (result.includes("tie")) {
             continue;
         } else {
             console.log("Invalid input. Please try again.");
@@ -105,13 +105,13 @@ function game() {
         }
     }
 
-    if(playerPoint > computerPoint) {
+    if (playerPoint > computerPoint) {
         return `Congratulations! You won!\nYour points: ${playerPoint}\nComputer's points: ${computerPoint}`;
-    } else if(computerPoint > playerPoint) {
+    } else if (computerPoint > playerPoint) {
         return `You lost! Better luck next time\nYour points: ${playerPoint}\nComputer's points: ${computerPoint}`;
     } else {
         return `It's a tie! Try again next time\nYour points: ${playerPoint}\nComputer's points: ${computerPoint}`;
     }
 }
 
-console.log(game());
+// console.log(game());

@@ -1,11 +1,49 @@
+* {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
 body {
     margin: 0;
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
-    height: 700px;
+    gap: 40px;
 }
- 
+
+.speech-bubble,
+.your-points,
+.computer-points {
+    height: 150px;
+    border-radius: 20px;
+    
+    color: white;
+    text-align: center;
+    font-size: larger;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 4px 4px 10px #aaaaaa;
+}
+
+.your-points,
+.computer-points {
+    width: 480px;
+    background-color: rgb(52, 52, 52);
+}
+
+.speech-bubble {
+    margin-top: 40px;
+    width: 1000px;
+    background-color: rgb(27, 24, 24);
+}
+
+.points {
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+}
+
 .button-imgs {
     display: flex;
     justify-content: center;

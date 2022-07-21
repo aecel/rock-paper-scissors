@@ -17,8 +17,6 @@ function getComputerChoice() {
     return choice;
 }
 
-// console.log(getComputerChoice());
-
 //Returns an appropriate dialogue (You win / You lose, etc.)
 function playRound(playerSelection, computerSelection) {
     playerSelection = playerSelection.trim();
@@ -81,63 +79,53 @@ function playRound(playerSelection, computerSelection) {
             dialogue = "Wrong input, sadge."
     }
 
-    return dialogue;
+    additionalDialogue = `You chose ${playerSelection}. The computer chose ${computerSelection}.\n`;
+    return additionalDialogue + dialogue;
 }
 
-//Plays 5 rounds of rock-paper-scissors
-function game(playerClick) {
-    playerPoint = 0;
-    computerPoint = 0;
-    // for (let i = 0; i < 5; i++) {
-    playerSelection = playerClick;
-    computerSelection = getComputerChoice();
-    result = playRound(playerSelection, computerSelection);
-    console.log(playRound(playerSelection, computerSelection));
+let isClicked = (e) => {
+    const buttonElement = e.target.closest("button");
+    const playerClicked = buttonElement.id;     //returns 'rock', 'paper', or 'scissors'
+
+    const result = playRound(playerClicked, getComputerChoice());
+    speechBubble.textContent = result;
+
+
     if (result.includes("win")) {
-        playerPoint++;
+        playerPointNum++;
+        yourPoints.textContent = `Your Points: ${playerPointNum}`;
     } else if (result.includes("lose")) {
-        computerPoint++;
-    } else if (result.includes("tie")) {
-        // continue;
-    } else {
-        console.log("Invalid input. Please try again.");
-        i--;
+        computerPointNum++;
+        computerPoints.textContent = `Computer\'s Points: ${computerPointNum}`;
     }
-    // }
 
-    if (playerPoint > computerPoint) {
-        return `Congratulations! You won!\nYour points: ${playerPoint}\nComputer's points: ${computerPoint}`;
-    } else if (computerPoint > playerPoint) {
-        return `You lost! Better luck next time\nYour points: ${playerPoint}\nComputer's points: ${computerPoint}`;
-    } else {
-        return `It's a tie! Try again next time\nYour points: ${playerPoint}\nComputer's points: ${computerPoint}`;
+    if (playerPointNum == 5) {
+        speechBubble.textContent += `\nCongratulations! You won!\nYour points: ${playerPointNum}\nComputer's points: ${computerPointNum}`;
+        playerPointNum = 0;
+        computerPointNum = 0;
+        yourPoints.textContent = `\nYour Points: ${playerPointNum}`;
+        computerPoints.textContent = `\nComputer\'s Points: ${computerPointNum}`;
+        
+    } else if (computerPointNum == 5) {
+        speechBubble.textContent += `\nYou lost! Better luck next time\nYour points: ${playerPointNum}\nComputer's points: ${computerPointNum}`;
+        playerPointNum = 0;
+        computerPointNum = 0;
+        yourPoints.textContent = `\nYour Points: ${playerPointNum}`;
+        computerPoints.textContent = `\nComputer\'s Points: ${computerPointNum}`;
+        
     }
-}
+};
 
-// const buttons = document.querySelectorAll(".button-img");
-// buttons.forEach((button) => {
-//     button.addEventListener("click", isClicked);
-// });
-// let clickedBoi = "";
+let playerPointNum = 0;
+let computerPointNum = 0;
 
-let rockClicked = () => {
-    game('rock');
-}
+const buttons = document.querySelectorAll(".button-img");
+buttons.forEach((button) => {
+    button.addEventListener("click", isClicked);
+});
 
-let paperClicked = () => {
-    game('paper');
-}
+const speechBubble = document.querySelector(".speech-bubble");
+const yourPoints = document.querySelector(".your-points");
+const computerPoints = document.querySelector(".computer-points");
 
-let scissorsClicked = () => {
-    game('scissors');
-}
 
-const rockButton = document.querySelector(".rock");
-const paperButton = document.querySelector(".paper");
-const scissorsButton = document.querySelector(".scissors");
-
-rockButton.addEventListener("click", rockClicked);
-paperButton.addEventListener("click", paperClicked);
-scissorsButton.addEventListener("click", scissorsClicked);
-
-// console.log(clickedBoi);

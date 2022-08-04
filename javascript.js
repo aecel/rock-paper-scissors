@@ -84,7 +84,7 @@ function playRound(playerSelection, computerSelection) {
 }
 
 let isClicked = (e) => {
-    const buttonElement = e.target.closest("button");
+    const buttonElement = e.target.closest(".circle");
     const playerClicked = buttonElement.id;     //returns 'rock', 'paper', or 'scissors'
 
     const result = playRound(playerClicked, getComputerChoice());
@@ -119,9 +119,9 @@ let isClicked = (e) => {
 let playerPointNum = 0;
 let computerPointNum = 0;
 
-const buttons = document.querySelectorAll(".button-img");
-buttons.forEach((button) => {
-    button.addEventListener("click", isClicked);
+const circles = document.querySelectorAll(".circle");
+circles.forEach((circle) => {
+    circle.addEventListener("click", isClicked);
 });
 
 const speechBubble = document.querySelector(".speech-bubble");

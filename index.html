@@ -9,10 +9,21 @@
     <script src="./javascript.js" defer></script>
   </head>
   <body>
-    <header></header>
+    <header>Copyright © aecel 2022</header>
     <div class="content">
       <div class="speech-bubble">Let's play Rock-Paper-Scissors!</div>
-      <div class="button-imgs">
+      <div class="comp-circles">
+        <div class="comp-circle">
+          <img class="icon-img" src="./images/rock.png" />
+        </div>
+        <div class="comp-circle">
+          <img class="icon-img" src="./images/paper.png" />
+        </div>
+        <div class="comp-circle">
+          <img class="icon-img" src="./images/scissors.png" />
+        </div>
+      </div>
+      <!-- <div class="button-imgs">
         <div class="rock button-img">
           <button id="rock">
             <img class="icon-img" src="./images/rock.png" />
@@ -28,12 +39,23 @@
             <img class="icon-img" src="./images/scissors.png" />
           </button>
         </div>
-      </div>
+      </div> -->
       <div class="points">
         <div class="your-points">Your Points: 0</div>
         <div class="computer-points">Computer's Points: 0</div>
       </div>
     </div>
-    <footer>Copyright © aecel 2022</footer>
+    <div class="choice-circles">
+      <div class="circle" id="rock">
+        <img class="icon-img" src="./images/rock.png" />
+      </div>
+      <div class="circle" id="paper">
+        <img class="icon-img" src="./images/paper.png" />
+      </div>
+      <div class="circle" id="scissors">
+        <img class="icon-img" src="./images/scissors.png" />
+      </div>
+    </div>
+    <footer></footer>
   </body>
 </html>

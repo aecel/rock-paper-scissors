@@ -6,12 +6,21 @@ function getComputerChoice() {
     switch (rand0to3) {
         case 0:
             choice = "rock";
+            compRock.style.backgroundColor = "cornflowerblue";
+            compPaper.style.backgroundColor = "white";
+            compScissors.style.backgroundColor = "white";
             break;
         case 1:
             choice = "paper";
+            compRock.style.backgroundColor = "white";
+            compPaper.style.backgroundColor = "cornflowerblue";
+            compScissors.style.backgroundColor = "white";            
             break;
         case 2:
             choice = "scissors";
+            compRock.style.backgroundColor = "white";
+            compPaper.style.backgroundColor = "white";
+            compScissors.style.backgroundColor = "cornflowerblue";
             break;
     }
     return choice;
@@ -79,8 +88,9 @@ function playRound(playerSelection, computerSelection) {
             dialogue = "Wrong input, sadge."
     }
 
-    additionalDialogue = `You chose ${playerSelection}. The computer chose ${computerSelection}.\n`;
-    return additionalDialogue + dialogue;
+    // additionalDialogue = `You chose ${playerSelection}. The computer chose ${computerSelection}.\n`;
+    // return additionalDialogue + dialogue;
+    return dialogue;
 }
 
 let isClicked = (e) => {
@@ -100,14 +110,14 @@ let isClicked = (e) => {
     }
 
     if (playerPointNum == 5) {
-        speechBubble.textContent += `\nCongratulations! You won!\nYour points: ${playerPointNum}\nComputer's points: ${computerPointNum}`;
+        speechBubble.textContent += `\nCongratulations! You won 5 rounds!\nYour points: ${playerPointNum},\nComputer's points: ${computerPointNum}`;
         playerPointNum = 0;
         computerPointNum = 0;
         yourPoints.textContent = `\nYour Points: ${playerPointNum}`;
         computerPoints.textContent = `\nComputer\'s Points: ${computerPointNum}`;
         
     } else if (computerPointNum == 5) {
-        speechBubble.textContent += `\nYou lost! Better luck next time\nYour points: ${playerPointNum}\nComputer's points: ${computerPointNum}`;
+        speechBubble.textContent += `\nYou lost 5 rounds! Better luck next time.\nYour points: ${playerPointNum},\nComputer's points: ${computerPointNum}`;
         playerPointNum = 0;
         computerPointNum = 0;
         yourPoints.textContent = `\nYour Points: ${playerPointNum}`;
@@ -127,5 +137,7 @@ circles.forEach((circle) => {
 const speechBubble = document.querySelector(".speech-bubble");
 const yourPoints = document.querySelector(".your-points");
 const computerPoints = document.querySelector(".computer-points");
-
+const compRock = document.querySelector(".rock");
+const compPaper = document.querySelector(".paper");
+const compScissors = document.querySelector(".scissors");
 

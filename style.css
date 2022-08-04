@@ -1,13 +1,13 @@
 * {
   font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
-  font-size: 0.7rem;
+  font-size: 0.9rem;
 }
 
 :root {
   --screen-height: calc(20px + 35vh);
   --screen-width: calc(100px + 50vw);
   --speech-width: calc(var(--screen-width) - 100px);
-  --points-width: calc(((var(--speech-width) + 100px)/2) - 20px);
+  --points-width: calc(((var(--speech-width) + 100px) / 2) - 20px);
   --circle-size: calc(50px + 1vw);
   --circle-gap: calc(5px + 1vw);
 }
@@ -37,7 +37,7 @@ body {
   justify-content: center;
   align-items: center;
   gap: 20px;
-  background-color: rgb(253, 218, 255);
+  background-color: rgb(133, 206, 222);
   border: solid rgb(30, 10, 30) 12px;
   border-radius: 10px;
   height: var(--screen-height);
@@ -49,7 +49,7 @@ body {
 .your-points,
 .computer-points {
   border-radius: 20px;
-  color: white;
+  color: rgb(40, 40, 40);
   text-align: center;
   font-size: larger;
   display: flex;
@@ -62,13 +62,13 @@ body {
 .computer-points {
   height: 45px;
   width: var(--points-width);
-  background-color: rgb(11, 10, 66);
+  /* background-color: rgb(11, 10, 66); */
 }
 
 .speech-bubble {
   height: 80px;
   width: var(--speech-width);
-  background-color: rgb(27, 24, 24);
+  /* background-color: rgb(27, 24, 24); */
   padding-left: 40px;
   padding-right: 40px;
 }
@@ -121,15 +121,21 @@ button {
   height: var(--circle-size);
   width: var(--circle-size);
   border-radius: 50%;
-  box-shadow: 5px 5px #111340;
+
+  /* box-shadow: 5px 5px rgba(8, 15, 81, 0.556); */
 
   display: flex;
   justify-content: center;
   align-items: center;
 }
 
+.circle {
+  box-shadow: 5px 5px rgba(22, 5, 55, 0.834);
+}
+
 .circle:hover {
-  background-color: rgb(196, 248, 250);
+  background-color: cornflowerblue;
+  cursor: pointer;
 }
 
 .circle:active {

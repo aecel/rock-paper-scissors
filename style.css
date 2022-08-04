@@ -1,6 +1,6 @@
 * {
   font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
-  font-size: 0.8rem;
+  font-size: 0.7rem;
 }
 
 :root {
@@ -8,6 +8,8 @@
   --screen-width: calc(100px + 50vw);
   --speech-width: calc(var(--screen-width) - 100px);
   --points-width: calc(((var(--speech-width) + 100px)/2) - 20px);
+  --circle-size: calc(50px + 1vw);
+  --circle-gap: calc(5px + 1vw);
 }
 
 html {
@@ -98,7 +100,7 @@ button {
 }
 
 .icon-img {
-  transform: scale(0.7);
+  transform: scale(0.5);
 }
 
 button {
@@ -110,20 +112,24 @@ button {
 .comp-circles,
 .choice-circles {
   display: flex;
-  gap: 30px;
+  gap: var(--circle-gap);
 }
 
 .comp-circle,
 .circle {
   background-color: rgb(234, 241, 255);
-  height: 80px;
-  width: 80px;
+  height: var(--circle-size);
+  width: var(--circle-size);
   border-radius: 50%;
   box-shadow: 5px 5px #111340;
 
   display: flex;
   justify-content: center;
   align-items: center;
+}
+
+.circle:hover {
+  background-color: rgb(196, 248, 250);
 }
 
 .circle:active {
